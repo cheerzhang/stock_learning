@@ -24,6 +24,21 @@ function LineChart({ dates, series, moneyAxis=true }: { dates:string[]; series:C
   return <div className="line-chart"><svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label="投资走势折线图">{ticks.map(t=>{const val=max-span*t;return <g key={t}><line x1={left} x2={width-right} y1={top+(height-top-bottom)*t} y2={top+(height-top-bottom)*t} className="chart-grid"/><text x={left-10} y={top+(height-top-bottom)*t+4} textAnchor="end">{moneyAxis?money(val):val.toFixed(1)}</text></g>})}{min<0&&<line x1={left} x2={width-right} y1={y(0)} y2={y(0)} className="chart-zero"/>}{series.map(s=><g key={s.name}><polyline points={s.values.map((v,i)=>`${x(i)},${y(v)}`).join(" ")} fill="none" stroke={s.color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>{s.values.map((v,i)=><circle key={i} cx={x(i)} cy={y(v)} r="3.5" fill={s.color} stroke="#fbf8f1" strokeWidth="2"/>)}</g>)}</svg><div className="date-axis">{dates.map((d,i)=><span key={d} style={{left:`${dates.length===1?50:i/(dates.length-1)*100}%`}}>{d.slice(5).replace("-","/")}</span>)}</div></div>;
 }
 
+type AnalysisRow = { openingProfit:number; startValue:number; prices:Price[] };
+function AnalysisPage({ rows, totalValue, totalProfit }: { rows:AnalysisRow[]; totalValue:number; totalProfit:number }) {
+  const year=2026; const now=new Date(); const monthsElapsed=now.getFullYear()===year?now.getMonth()+1:12;
+  const cumulative=Array.from({length:monthsElapsed},(_,index)=>{const month=index+1;const end=`${year}-${String(month).padStart(2,"0")}-31`;return rows.reduce((sum,row)=>{const value=row.prices.filter(p=>p.date<=end).at(-1)?.value??row.prices[0]?.value??0;const flows=row.prices.filter(p=>p.date<=end).reduce((n,p)=>n+(p.flow??0),0);return sum+(row.openingProfit??0)+(value-row.startValue)-flows},0)});
+  const monthly=cumulative.map((value,index)=>value-(index?cumulative[index-1]:0)); const maxBar=Math.max(1,...monthly.map(Math.abs));
+  const assetFour=totalValue*.04, profitFour=totalProfit*.04;
+  const cards=[
+    {label:"截至目前累计收益",value:money(totalProfit),sub:"全部资产合计",tone:totalProfit>=0?"up":"down"},
+    {label:"截至目前总资产",value:money(totalValue),sub:"最新持仓总价值",tone:""},
+    {label:"按 12 个月平均",value:money(totalProfit/12),sub:"累计收益 ÷ 12",tone:totalProfit>=0?"up":"down"},
+    {label:"实际月均收益",value:money(totalProfit/monthsElapsed),sub:`累计收益 ÷ ${monthsElapsed} 个月`,tone:totalProfit>=0?"up":"down"},
+  ];
+  return <main><header><div className="brand"><span className="mark">仓</span><div><strong>仓鉴</strong><small>投资分析中心</small></div></div><nav><a href="#/">看板</a><a className="active" href="#/analysis">分析</a></nav><span className="saved"><i/> 数据截至最新记录</span></header><section className="analysis-hero"><span className="kicker">PORTFOLIO INTELLIGENCE · {year}</span><h1>让数字回答，<br/><em>收益意味着什么。</em></h1><p>以 2026 年 1 月 1 日作为分析起点，拆解累计收益、月均能力与 4% 指标。</p></section><section className="analysis-kpis">{cards.map(card=><div key={card.label}><span>{card.label}</span><strong className={card.tone}>{card.value}</strong><small>{card.sub}</small></div>)}</section><section className="monthly-panel"><div className="section-head"><div><span className="kicker">MONTHLY PROFIT</span><h2>实际每月收益</h2><p>每月末累计收益之差；新增投入只增加本金，不计为收益。</p></div><strong className={totalProfit>=0?"up":"down"}>{money(totalProfit)}</strong></div><div className="month-bars">{monthly.map((value,index)=><div key={index}><span className="bar-value">{money(value)}</span><div className="bar-space"><i className={value>=0?"positive":"negative"} style={{height:`${Math.max(Math.abs(value)/maxBar*100,3)}%`}}/></div><time>{index+1}月</time></div>)}</div></section><section className="four-grid"><div><span className="kicker">4% OF ASSETS</span><h2>总资产的 4%</h2><strong>{money(assetFour)}</strong><p>平均每月 <b>{money(assetFour/12)}</b></p><small>{money(totalValue)} × 4%</small></div><div><span className="kicker">4% OF PROFIT</span><h2>收益部分的 4%</h2><strong className={profitFour>=0?"up":"down"}>{money(profitFour)}</strong><p>平均每月 <b>{money(profitFour/12)}</b></p><small>{money(totalProfit)} × 4%</small></div></section><section className="method"><strong>计算说明</strong><span>初始值视为 {year}-01-01</span><span>当前按 {monthsElapsed} 个月计算实际月均</span><span>全年平均固定除以 12</span></section><footer>仓鉴 · 分析页面只读取已有持仓与每日记录</footer></main>;
+}
+
 export default function Home() {
   const [store, setStore] = useState<Store>(emptyStore);
   const [ready, setReady] = useState(false);
@@ -35,6 +50,7 @@ export default function Home() {
   const [ledgerProfit, setLedgerProfit] = useState("");
   const [expanded, setExpanded] = useState<string | null>(null);
   const [excluded, setExcluded] = useState<string[]>([]);
+  const [route, setRoute] = useState(()=>location.hash==="#/analysis"?"analysis":"dashboard");
   const savedSnapshot = useRef(JSON.stringify(emptyStore));
 
   useEffect(() => {
@@ -47,6 +63,7 @@ export default function Home() {
     const snapshot = JSON.stringify(store); if (snapshot === savedSnapshot.current) return; savedSnapshot.current = snapshot;
     fetch("/api/portfolio", { method: "POST", headers: { "Content-Type": "application/json" }, body: snapshot }).catch(() => {});
   }, [store, ready]);
+  useEffect(()=>{const update=()=>setRoute(location.hash==="#/analysis"?"analysis":"dashboard");addEventListener("hashchange",update);return()=>removeEventListener("hashchange",update)},[]);
 
   const rows = useMemo(() => store.assets.map(asset => {
     const prices = store.prices.filter(p => p.assetId === asset.id).sort((a,b) => a.date.localeCompare(b.date));
@@ -71,6 +88,12 @@ export default function Home() {
     const profitValues=dates.map((d,i)=>rows.reduce((sum,row,index)=>{const flows=row.prices.filter(p=>p.date<=d).reduce((n,p)=>n+(p.flow??0),0);return sum+(row.openingProfit??0)+(assetSeries[index].values[i]-row.startValue)-flows},0));
     return {dates,assetSeries,totalValues,profitValues};
   }, [rows, store.prices]);
+  const expandedTrend = useMemo(() => {
+    const row=rows.find(r=>r.id===expanded); if(!row) return null;
+    let flows=0;
+    const values=row.prices.map((p,index)=>{if(index>0) flows+=p.flow??0;return (row.openingProfit??0)+(p.value-row.startValue)-flows});
+    return {row,dates:row.prices.map(p=>p.date),values};
+  }, [rows, expanded]);
 
   function addAsset(e: FormEvent<HTMLFormElement>) {
     e.preventDefault(); const fd = new FormData(e.currentTarget); const code = String(fd.get("code")).trim().toUpperCase();
@@ -90,8 +113,10 @@ export default function Home() {
     setModal(null);
   }
 
+  if(route==="analysis") return <AnalysisPage rows={rows} totalValue={totals.value} totalProfit={totals.profit}/>;
+
   return <main>
-    <header><div className="brand"><span className="mark">仓</span><div><strong>仓鉴</strong><small>持仓价值记录</small></div></div><div className="header-actions"><span className="saved"><i/> 欧元 · {IS_LOCAL?"本地编辑":"线上只读"}</span>{IS_LOCAL&&<><button className="ghost" onClick={()=>setModal("asset")}>＋ 添加资产</button><button className="ghost" disabled={!store.assets.length} onClick={()=>{const asset=store.assets.find(a=>a.id===selected)??store.assets[0];setSelected(asset.id);setLedgerProfit(String(asset.openingProfit??0));setModal("ledger")}}>设置初始收益</button><button className="primary" disabled={!store.assets.length} onClick={()=>{setDate(today());setClose("");setFlow("");setModal("price")}}>＋ 记录当天价值 / 投入</button></>}</div></header>
+    <header><div className="brand"><span className="mark">仓</span><div><strong>仓鉴</strong><small>持仓价值记录</small></div></div><nav><a className="active" href="#/">看板</a><a href="#/analysis">分析</a></nav><div className="header-actions"><span className="saved"><i/> 欧元 · {IS_LOCAL?"本地编辑":"线上只读"}</span>{IS_LOCAL&&<><button className="ghost" onClick={()=>setModal("asset")}>＋ 添加资产</button><button className="ghost" disabled={!store.assets.length} onClick={()=>{const asset=store.assets.find(a=>a.id===selected)??store.assets[0];setSelected(asset.id);setLedgerProfit(String(asset.openingProfit??0));setModal("ledger")}}>设置初始收益</button><button className="primary" disabled={!store.assets.length} onClick={()=>{setDate(today());setClose("");setFlow("");setModal("price")}}>＋ 记录当天价值 / 投入</button></>}</div></header>
 
     <section className="hero"><div><p className="eyebrow">MY HOLDINGS</p><h1>从今天开始，<br/><em>记住价值。</em></h1><p className="intro">过去汇总成一个起点，今天之后按日记录；休市日无需填写。</p></div><div className="hero-total"><span>当前持仓总价值</span><strong>{money(totals.value)}</strong><p className={totals.profit>=0?"up":"down"}>{pct(totals.principal?totals.profit/totals.principal*100:0)} <b>{money(totals.profit)}</b></p><small>本金 {money(totals.principal)}</small></div></section>
 
@@ -100,6 +125,8 @@ export default function Home() {
     {!!store.assets.length&&<section className="contribution-panel"><div className="section-head"><div><span className="kicker">WHAT-IF ANALYSIS</span><h2>假设只买了这些资产</h2><p>正数表示创造收益，负数表示拖累收益；组合亏损时也不会把亏损显示成正贡献。</p></div><div className="scenario-total"><small>模拟总收益</small><strong className={scenarioTotals.profit>=0?"up":"down"}>{money(scenarioTotals.profit)}</strong><span>{pct(scenarioTotals.principal?scenarioTotals.profit/scenarioTotals.principal*100:0)}</span></div></div><div className="asset-filters">{rows.map(row=>{const active=!excluded.includes(row.id);return <button key={row.id} className={active?"active":""} onClick={()=>setExcluded(x=>active?[...x,row.id]:x.filter(id=>id!==row.id))}><i style={{background:row.color}}/>{active?"✓ ":""}{row.name}</button>})}<button className="reset-filter" disabled={!excluded.length} onClick={()=>setExcluded([])}>全部恢复</button></div>{scenarioRows.length?<div className="contribution-list">{[...scenarioRows].sort((a,b)=>b.profit-a.profit).map(row=>{const contribution=scenarioTotals.profit?row.profit/Math.abs(scenarioTotals.profit)*100:0;return <div key={row.id}><div className="contribution-label"><span><i style={{background:row.color}}/>{row.name}<small>{row.code}</small></span><span><strong className={row.profit>=0?"up":"down"}>{money(row.profit)}</strong><b className={contribution>=0?"up":"down"}>{contribution>=0?"+":""}{contribution.toFixed(1)}%</b></span></div><div className="contribution-track"><i className={contribution<0?"loss":""} style={{width:`${Math.min(Math.abs(contribution),100)}%`,background:row.color}}/></div></div>})}</div>:<div className="scenario-empty">至少保留一项资产来进行模拟</div>}</section>}
 
     {!store.assets.length ? <section className="blank"><span className="kicker">START HERE</span><h2>还没有资产</h2><p>先添加现有资产，并记录今天的持仓总价值和截至今天的累计收益。</p>{IS_LOCAL&&<button className="primary" onClick={()=>setModal("asset")}>添加第一项资产</button>}</section> : <section className="holdings"><div className="section-head"><div><span className="kicker">PORTFOLIO</span><h2>我的资产</h2><p>点击资产可以展开查看总账和每天记录的持仓价值。</p></div><span className="count">{store.assets.length} 项资产</span></div><div className="asset-list">{rows.map(row=>{const contribution=totals.profit?row.profit/totals.profit*100:0;return <article key={row.id} className={expanded===row.id?"open":""}><button className="asset-main" onClick={()=>setExpanded(expanded===row.id?null:row.id)}><span className="asset-icon" style={{background:row.color}}>{row.code.slice(0,2)}</span><span className="identity"><strong>{row.name}</strong><small>{row.code} · {row.type}</small></span><span><small>本金</small><strong>{money(row.principal)}</strong></span><span><small>当前持仓价值</small><strong>{money(row.value)}</strong></span><span><small>累计收益 / 贡献</small><strong className={row.profit>=0?"up":"down"}>{money(row.profit)} · {contribution.toFixed(1)}%</strong></span><span className="chevron">{expanded===row.id?"−":"＋"}</span></button>{expanded===row.id&&<div className="asset-detail"><div className="metric-row"><div><small>截至目前收益</small><strong className={row.profit>=0?"up":"down"}>{money(row.profit)}</strong></div><div><small>收益率</small><strong className={row.returnPct>=0?"up":"down"}>{pct(row.returnPct)}</strong></div><div><small>占总收益</small><strong>{contribution.toFixed(1)}%</strong></div><div><small>最后记录</small><strong>{row.latest?.date ?? "尚未记录"}</strong></div></div><div className="price-history"><div className="history-head"><h3>每日持仓总价值</h3>{IS_LOCAL&&<button onClick={()=>{setSelected(row.id);setDate(today());setClose("");setModal("price")}}>＋ 记录价值</button>}</div><div className="price-grid">{[...row.prices].reverse().map(p=><div key={p.id}><time>{p.date}</time><strong>{money(p.value)}</strong>{IS_LOCAL&&<button aria-label="删除记录" onClick={()=>setStore(s=>({...s,prices:s.prices.filter(x=>x.id!==p.id)}))}>×</button>}</div>)}</div></div>{IS_LOCAL&&<button className="delete-link" onClick={()=>{if(confirm(`删除 ${row.name} 和全部价值记录？`))setStore(s=>({assets:s.assets.filter(a=>a.id!==row.id),prices:s.prices.filter(p=>p.assetId!==row.id)}))}}>删除这项资产</button>}</div>}</article>})}</div></section>}
+
+    {expandedTrend&&<section className="single-asset-chart"><div className="chart-title"><div><span className="kicker">ASSET PROFIT TREND</span><h2>{expandedTrend.row.name} · 收益变化</h2><p>只看这项资产；已扣除后续新增投入，包含初始累计盈亏。</p></div><div className="single-profit"><small>最新累计收益</small><strong className={expandedTrend.row.profit>=0?"up":"down"}>{money(expandedTrend.row.profit)}</strong><span>{pct(expandedTrend.row.returnPct)}</span></div></div><div className="chart-legend"><span><i style={{background:expandedTrend.row.color}}/>{expandedTrend.row.code} 累计收益</span></div><LineChart dates={expandedTrend.dates} series={[{name:expandedTrend.row.name,color:expandedTrend.row.color,values:expandedTrend.values}]}/></section>}
 
     <footer>仓鉴 · 周末和休市日无需补录 · 第一条持仓价值记录视为历史起点</footer>
 
