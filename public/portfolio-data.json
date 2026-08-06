@@ -129,53 +129,53 @@
       "value": 76158
     },
     {
-      "id": "d8523ec2-161e-4a26-b36a-5a515f4eafd3",
+      "id": "097a21cb-3679-4c49-9f4f-5f4ceec367f2",
       "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb",
       "date": "2026-08-06",
-      "value": 18039,
+      "value": 18173,
       "flow": 0
     },
     {
-      "id": "1d9980b1-a220-4df4-b429-361607d0786c",
-      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15",
-      "date": "2026-08-06",
-      "value": 77063,
-      "flow": 0
-    },
-    {
-      "id": "ce182f91-342d-4715-be5e-251d5c0453f9",
-      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
-      "date": "2026-08-06",
-      "value": 15772,
-      "flow": 0
-    },
-    {
-      "id": "5019a58f-9bfb-47c9-a829-3abc1e1c69dd",
+      "id": "0ef6ec58-a77d-4a27-bc85-b61d056b90ce",
       "assetId": "047c8eff-238a-4603-a751-0c1b2fb56d3c",
       "date": "2026-08-06",
-      "value": 7839,
+      "value": 7936,
       "flow": 0
     },
     {
-      "id": "8e2fb196-96e8-4147-94f8-ee7516ef7452",
+      "id": "6eec7690-4a9a-402c-ba6d-3dca5778774b",
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
+      "date": "2026-08-06",
+      "value": 15769,
+      "flow": 0
+    },
+    {
+      "id": "2ea2c482-0435-4bbe-bcc6-30b9d104a69c",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15",
+      "date": "2026-08-06",
+      "value": 75670,
+      "flow": 0
+    },
+    {
+      "id": "31632f3a-970a-44a4-9adb-61f163888d1c",
       "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e",
       "date": "2026-08-06",
-      "value": 289,
+      "value": 293,
       "flow": 0
     },
     {
-      "id": "4627d346-81d1-49be-a6c1-fc47af252266",
+      "id": "1d960fa4-f4b9-453f-ab20-ae1b5a3b0a58",
       "assetId": "9d6e1537-5929-448c-8355-0e962409443e",
       "date": "2026-08-06",
-      "value": 471,
+      "value": 474,
       "flow": 0
     },
     {
-      "id": "9b83435f-8f4b-4621-a8f5-4e998b703423",
+      "id": "5e0a1a00-b10e-4084-8c57-4470b8ee74d8",
       "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51",
       "date": "2026-08-06",
-      "value": 16112,
-      "flow": 500
+      "value": 16064,
+      "flow": 0
     }
   ]
 }
