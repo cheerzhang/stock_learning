@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 function localPortfolioEditor() {
@@ -8,6 +8,12 @@ function localPortfolioEditor() {
     name: "local-portfolio-editor",
     configureServer(server: { middlewares: { use: (path: string, handler: (req: import("node:http").IncomingMessage, res: import("node:http").ServerResponse) => void) => void } }) {
       server.middlewares.use("/api/portfolio", (req, res) => {
+        if (req.method === "GET") {
+          readFile(resolve(process.cwd(), "public/portfolio-data.json"), "utf8")
+            .then(data => { res.setHeader("Content-Type", "application/json"); res.end(data); })
+            .catch(() => { res.statusCode = 500; res.end('{"assets":[],"prices":[]}'); });
+          return;
+        }
         if (req.method !== "POST") { res.statusCode = 405; res.end(); return; }
         let body = "";
         req.on("data", chunk => { body += chunk; });

@@ -38,7 +38,7 @@ export default function Home() {
   const savedSnapshot = useRef(JSON.stringify(emptyStore));
 
   useEffect(() => {
-    fetch("./portfolio-data.json", { cache: "no-store" }).then(r => r.json()).then((data: Store) => {
+    fetch(IS_LOCAL ? "/api/portfolio" : "./portfolio-data.json", { cache: "no-store" }).then(r => r.json()).then((data: Store) => {
       savedSnapshot.current = JSON.stringify(data); setStore(data); setSelected(data.assets[0]?.id ?? "");
     }).catch(() => setStore(emptyStore)).finally(() => setReady(true));
   }, []);
