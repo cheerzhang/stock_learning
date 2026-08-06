@@ -1,0 +1,174 @@
+{
+  "assets": [
+    {
+      "id": "9d6e1537-5929-448c-8355-0e962409443e",
+      "code": "INTC",
+      "name": "Intel",
+      "type": "股票",
+      "avgBuyPrice": 91.94,
+      "openingProfit": -24,
+      "color": "#c75b42"
+    },
+    {
+      "id": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e",
+      "code": "MRVL",
+      "name": "Marvell",
+      "type": "股票",
+      "avgBuyPrice": 190,
+      "openingProfit": -12,
+      "color": "#2d6a59"
+    },
+    {
+      "id": "c40f6e3b-2326-4f24-9668-27c9d5457306",
+      "code": "8PSG",
+      "name": "黄金",
+      "type": "黄金",
+      "avgBuyPrice": 336,
+      "openingProfit": 5,
+      "color": "#c7972e"
+    },
+    {
+      "id": "047c8eff-238a-4603-a751-0c1b2fb56d3c",
+      "code": "PLTR",
+      "name": "Palantir",
+      "type": "股票",
+      "avgBuyPrice": 111,
+      "openingProfit": 1507,
+      "color": "#536ea8"
+    },
+    {
+      "id": "05c91c56-3c4e-4c87-b222-fec95be90c51",
+      "code": "ORCL",
+      "name": "Oracel",
+      "type": "股票",
+      "avgBuyPrice": 155,
+      "openingProfit": -3740,
+      "color": "#915f84"
+    },
+    {
+      "id": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
+      "code": "MSFT",
+      "name": "Microsoft",
+      "type": "股票",
+      "avgBuyPrice": 354,
+      "openingProfit": 2503,
+      "color": "#c75b42"
+    },
+    {
+      "id": "157a325f-02b4-49cb-b4a4-0f86f438fffb",
+      "code": "TSM",
+      "name": "台积电",
+      "type": "股票",
+      "avgBuyPrice": 288,
+      "openingProfit": 3501,
+      "color": "#2d6a59"
+    },
+    {
+      "id": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15",
+      "code": "NVDA",
+      "name": "NVIDIA",
+      "type": "股票",
+      "avgBuyPrice": 157,
+      "openingProfit": 12837,
+      "color": "#c7972e"
+    }
+  ],
+  "prices": [
+    {
+      "id": "ed1e5be3-18b5-4ed2-aa45-92fc4a1b078e",
+      "assetId": "9d6e1537-5929-448c-8355-0e962409443e",
+      "date": "2026-06-08",
+      "value": 476
+    },
+    {
+      "id": "26249798-efb8-4cef-a808-505bda98d197",
+      "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e",
+      "date": "2026-06-08",
+      "value": 288
+    },
+    {
+      "id": "86b58887-476b-460c-ac20-f2bfb6c6b019",
+      "assetId": "c40f6e3b-2326-4f24-9668-27c9d5457306",
+      "date": "2026-08-05",
+      "value": 105
+    },
+    {
+      "id": "1f71daf1-0a7a-409a-acd7-0a19005f112b",
+      "assetId": "047c8eff-238a-4603-a751-0c1b2fb56d3c",
+      "date": "2026-06-08",
+      "value": 8005
+    },
+    {
+      "id": "fc455bec-45af-45aa-8821-b30b4c48cb92",
+      "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51",
+      "date": "2026-06-06",
+      "value": 15510
+    },
+    {
+      "id": "7d73e625-319d-4c2a-a034-815566aacbe8",
+      "assetId": "c40f6e3b-2326-4f24-9668-27c9d5457306",
+      "date": "2026-08-06",
+      "value": 105.31
+    },
+    {
+      "id": "72233fa7-158e-4546-8564-44a34b2fa60c",
+      "assetId": "9d6e1537-5929-448c-8355-0e962409443e",
+      "date": "2026-08-06",
+      "value": 476.16
+    },
+    {
+      "id": "ed4adf85-e489-4fa6-9308-2d57a6838f5c",
+      "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e",
+      "date": "2026-08-06",
+      "value": 288.51
+    },
+    {
+      "id": "f84fc21c-0236-4065-a790-554f35a3417d",
+      "assetId": "047c8eff-238a-4603-a751-0c1b2fb56d3c",
+      "date": "2026-08-06",
+      "value": 8008.08
+    },
+    {
+      "id": "910ed821-aa54-472a-b1d8-e2d215644592",
+      "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51",
+      "date": "2026-08-06",
+      "value": 15506.41
+    },
+    {
+      "id": "445f7d40-b72c-4017-8531-d21714696c46",
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
+      "date": "2026-08-05",
+      "value": 15503
+    },
+    {
+      "id": "578cf456-3757-41f5-9346-8e4f3c81c910",
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
+      "date": "2026-08-06",
+      "value": 15504.29
+    },
+    {
+      "id": "44608127-39e5-44af-8bd4-da461dcecb2c",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb",
+      "date": "2026-08-05",
+      "value": 17831
+    },
+    {
+      "id": "72201905-433f-4645-9f44-df58fd8bae64",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb",
+      "date": "2026-08-06",
+      "value": 17831.48
+    },
+    {
+      "id": "e8c4359f-fa06-4a56-bbac-8879716e8215",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15",
+      "date": "2026-08-05",
+      "value": 76158
+    },
+    {
+      "id": "6403ddfc-b37f-4ab9-a906-fb245e1023e9",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15",
+      "date": "2026-08-06",
+      "value": 76159.56
+    }
+  ]
+}
