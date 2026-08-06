@@ -27,4 +27,6 @@ npm run dev
 
 ## 发布到 GitHub Pages
 
-仓库已包含自动发布工作流。将代码推送到 `main` 分支后，在 GitHub 仓库的 **Settings → Pages → Source** 中选择 **GitHub Actions**，后续每次推送都会自动更新页面。
+在 GitHub 仓库的 **Settings → Pages → Source** 中选择 **Deploy from a branch**，分支选择 `main`，目录选择 `/(root)`。
+
+每次本地更新数据后运行 `npm run build`，构建会把可直接发布的网站生成到仓库根目录。提交并推送 `main` 后，GitHub Pages 会直接发布根目录内容。

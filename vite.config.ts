@@ -26,5 +26,18 @@ function localPortfolioEditor() {
 
 export default defineConfig({
   base: "./",
+  root: "source",
+  publicDir: false,
   plugins: [react(), localPortfolioEditor()],
+  build: {
+    outDir: "../root-publish",
+    emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        entryFileNames: "site-assets/app.js",
+        assetFileNames: "site-assets/app.[ext]",
+        chunkFileNames: "site-assets/[name].js",
+      },
+    },
+  },
 });

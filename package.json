@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/sync-root-build.mjs",
     "start": "vite preview",
     "test": "npm run build",
     "lint": "tsc --noEmit"

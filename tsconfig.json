@@ -18,6 +18,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["main.tsx", "app/page.tsx"],
+  "include": ["source/main.tsx", "app/page.tsx"],
   "exclude": ["node_modules"]
 }
