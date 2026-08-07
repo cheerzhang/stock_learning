@@ -105,12 +105,6 @@
       "value": 15510
     },
     {
-      "id": "7d73e625-319d-4c2a-a034-815566aacbe8",
-      "assetId": "c40f6e3b-2326-4f24-9668-27c9d5457306",
-      "date": "2026-08-06",
-      "value": 105.31
-    },
-    {
       "id": "445f7d40-b72c-4017-8531-d21714696c46",
       "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
       "date": "2026-08-05",
@@ -129,53 +123,149 @@
       "value": 76158
     },
     {
-      "id": "1d960fa4-f4b9-453f-ab20-ae1b5a3b0a58",
+      "id": "13468c57-3d0e-4cb3-aa37-2b601bcece31",
       "assetId": "9d6e1537-5929-448c-8355-0e962409443e",
       "date": "2026-08-06",
-      "value": 474,
+      "value": 471.08,
       "flow": 0
     },
     {
-      "id": "9b3f3b36-8ce9-4a8a-948c-d20365fa6834",
+      "id": "7d1c7c18-9d85-44ac-84e5-0c229e6af697",
       "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e",
       "date": "2026-08-06",
-      "value": 291,
+      "value": 288.35,
       "flow": 0
     },
     {
-      "id": "f430dab8-670d-4fde-a33e-00de5fa6866f",
+      "id": "03099494-4a51-4d33-a467-a7c0a633d586",
+      "assetId": "c40f6e3b-2326-4f24-9668-27c9d5457306",
+      "date": "2026-08-06",
+      "value": 105.28,
+      "flow": 0
+    },
+    {
+      "id": "f6564759-4a4c-4baa-a650-510c3bceac3a",
       "assetId": "047c8eff-238a-4603-a751-0c1b2fb56d3c",
       "date": "2026-08-06",
-      "value": 7888,
+      "value": 7895.03,
       "flow": 0
     },
     {
-      "id": "6462807c-9cde-4b7b-983a-69d541984002",
-      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
-      "date": "2026-08-06",
-      "value": 15834,
-      "flow": 0
-    },
-    {
-      "id": "21b752ee-2fac-47aa-9d00-25872af312cf",
+      "id": "ec37cb87-621f-4cf8-818f-ce0818032f2c",
       "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51",
       "date": "2026-08-06",
-      "value": 15979,
+      "value": 15927.43,
       "flow": 500
     },
     {
-      "id": "e73320be-ca51-4b95-8465-db45739e14a6",
-      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb",
+      "id": "08728d7c-9892-4d7a-8ab0-96245d1d3c35",
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
       "date": "2026-08-06",
-      "value": 18128,
+      "value": 15930.15,
       "flow": 0
     },
     {
-      "id": "3743a908-a7c4-4185-a87b-d6f53680dda1",
+      "id": "40bbd3c2-5a58-41d2-abef-471f48f7cb38",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb",
+      "date": "2026-08-06",
+      "value": 18048.96,
+      "flow": 0
+    },
+    {
+      "id": "aab989dd-ccf1-403a-9548-06f3028b9449",
       "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15",
       "date": "2026-08-06",
-      "value": 76490,
+      "value": 76229.54,
       "flow": 0
+    },
+    {
+      "id": "4eb5127a-0c64-4e21-b912-affd139836c1",
+      "assetId": "c40f6e3b-2326-4f24-9668-27c9d5457306",
+      "date": "2026-08-07",
+      "value": 107.05,
+      "flow": 0
+    }
+  ],
+  "entries": [
+    {
+      "id": "7e184f5f-e76e-4012-a403-d92880814f9b",
+      "type": "dividend",
+      "date": "2026-07-01",
+      "amount": 0.03,
+      "note": "Marvell"
+    },
+    {
+      "id": "12cb43d2-4332-4c66-8595-f0ce7acb3592",
+      "type": "dividend",
+      "date": "2026-07-02",
+      "amount": 41.6,
+      "note": "Oracle"
+    },
+    {
+      "id": "2870fe04-d2d3-497f-85aa-cfa3b5d32153",
+      "type": "dividend",
+      "date": "2026-07-03",
+      "amount": 34.13,
+      "note": "TSM"
+    },
+    {
+      "id": "fb2ebffb-0a5c-48ea-8ebb-258ca7f4d898",
+      "type": "dividend",
+      "date": "2026-06-01",
+      "amount": 77.5,
+      "note": "Nvida"
+    },
+    {
+      "id": "77b896db-5d6d-4569-9b38-b66979a167b3",
+      "type": "dividend",
+      "date": "2026-06-02",
+      "amount": 17.95,
+      "note": "Microsoft"
+    },
+    {
+      "id": "78276bf7-5f67-4eea-bf5a-7a5c5dd850e4",
+      "type": "dividend",
+      "date": "2026-04-01",
+      "amount": 3.13,
+      "note": "Nvida"
+    },
+    {
+      "id": "a9b4e050-2ad4-48f1-84e1-573ec189f2c2",
+      "type": "dividend",
+      "date": "2026-04-02",
+      "amount": 37.32,
+      "note": "TSM"
+    },
+    {
+      "id": "ee9b5748-d0d6-4b3b-8769-e8a535ea9ff4",
+      "type": "dividend",
+      "date": "2026-01-07",
+      "amount": 28.97,
+      "note": "TSM"
+    },
+    {
+      "id": "5db159c0-6b34-48f7-88a5-ca40da50bcb4",
+      "type": "fee",
+      "date": "2026-07-07",
+      "amount": 11.9
+    },
+    {
+      "id": "92f3934f-a288-42cb-a6cd-6d0d2b8ece46",
+      "type": "fee",
+      "date": "2026-06-07",
+      "amount": 45.56
+    },
+    {
+      "id": "21c7dc95-4a01-4fb8-a218-916a082ad309",
+      "type": "fee",
+      "date": "2026-05-07",
+      "amount": 46.55
+    },
+    {
+      "id": "9aecb30a-0657-47a2-b661-186aa61cd48a",
+      "type": "fee",
+      "date": "2026-04-07",
+      "amount": 13.88
     }
   ]
 }

@@ -11,7 +11,7 @@ function localPortfolioEditor() {
         if (req.method === "GET") {
           readFile(resolve(process.cwd(), "public/portfolio-data.json"), "utf8")
             .then(data => { res.setHeader("Content-Type", "application/json"); res.end(data); })
-            .catch(() => { res.statusCode = 500; res.end('{"assets":[],"prices":[]}'); });
+            .catch(() => { res.statusCode = 500; res.end('{"assets":[],"prices":[],"entries":[]}'); });
           return;
         }
         if (req.method !== "POST") { res.statusCode = 405; res.end(); return; }
@@ -20,7 +20,7 @@ function localPortfolioEditor() {
         req.on("end", async () => {
           try {
             const data = JSON.parse(body);
-            if (!Array.isArray(data.assets) || !Array.isArray(data.prices)) throw new Error("Invalid data");
+            if (!Array.isArray(data.assets) || !Array.isArray(data.prices) || !Array.isArray(data.entries)) throw new Error("Invalid data");
             await writeFile(resolve(process.cwd(), "public/portfolio-data.json"), `${JSON.stringify(data, null, 2)}\n`, "utf8");
             res.setHeader("Content-Type", "application/json"); res.end('{"ok":true}');
           } catch { res.statusCode = 400; res.end('{"ok":false}'); }

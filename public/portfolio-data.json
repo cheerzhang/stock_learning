@@ -177,6 +177,103 @@
       "date": "2026-08-06",
       "value": 76229.54,
       "flow": 0
+    },
+    {
+      "id": "4eb5127a-0c64-4e21-b912-affd139836c1",
+      "assetId": "c40f6e3b-2326-4f24-9668-27c9d5457306",
+      "date": "2026-08-07",
+      "value": 107.05,
+      "flow": 0
+    }
+  ],
+  "entries": [
+    {
+      "id": "7e184f5f-e76e-4012-a403-d92880814f9b",
+      "type": "dividend",
+      "date": "2026-07-01",
+      "amount": 0.03,
+      "note": "Marvell",
+      "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e"
+    },
+    {
+      "id": "12cb43d2-4332-4c66-8595-f0ce7acb3592",
+      "type": "dividend",
+      "date": "2026-07-02",
+      "amount": 41.6,
+      "note": "Oracle",
+      "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51"
+    },
+    {
+      "id": "2870fe04-d2d3-497f-85aa-cfa3b5d32153",
+      "type": "dividend",
+      "date": "2026-07-03",
+      "amount": 34.13,
+      "note": "TSM",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb"
+    },
+    {
+      "id": "fb2ebffb-0a5c-48ea-8ebb-258ca7f4d898",
+      "type": "dividend",
+      "date": "2026-06-01",
+      "amount": 77.5,
+      "note": "Nvida",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15"
+    },
+    {
+      "id": "77b896db-5d6d-4569-9b38-b66979a167b3",
+      "type": "dividend",
+      "date": "2026-06-02",
+      "amount": 17.95,
+      "note": "Microsoft",
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762"
+    },
+    {
+      "id": "78276bf7-5f67-4eea-bf5a-7a5c5dd850e4",
+      "type": "dividend",
+      "date": "2026-04-01",
+      "amount": 3.13,
+      "note": "Nvida",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15"
+    },
+    {
+      "id": "a9b4e050-2ad4-48f1-84e1-573ec189f2c2",
+      "type": "dividend",
+      "date": "2026-04-02",
+      "amount": 37.32,
+      "note": "TSM",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb"
+    },
+    {
+      "id": "ee9b5748-d0d6-4b3b-8769-e8a535ea9ff4",
+      "type": "dividend",
+      "date": "2026-01-07",
+      "amount": 28.97,
+      "note": "TSM",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb"
+    },
+    {
+      "id": "5db159c0-6b34-48f7-88a5-ca40da50bcb4",
+      "type": "fee",
+      "date": "2026-07-07",
+      "amount": 11.9
+    },
+    {
+      "id": "92f3934f-a288-42cb-a6cd-6d0d2b8ece46",
+      "type": "fee",
+      "date": "2026-06-07",
+      "amount": 45.56
+    },
+    {
+      "id": "21c7dc95-4a01-4fb8-a218-916a082ad309",
+      "type": "fee",
+      "date": "2026-05-07",
+      "amount": 46.55
+    },
+    {
+      "id": "9aecb30a-0657-47a2-b661-186aa61cd48a",
+      "type": "fee",
+      "date": "2026-04-07",
+      "amount": 13.88
     }
   ]
 }
