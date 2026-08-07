@@ -865,7 +865,7 @@ export default function Home() {
   const savedSnapshot = useRef(JSON.stringify(emptyStore));
 
   useEffect(() => {
-    fetch(IS_LOCAL ? "/api/portfolio" : "./portfolio-data.json", {
+    fetch(IS_LOCAL ? "/api/portfolio" : `./portfolio-data.json?v=${Date.now()}`, {
       cache: "no-store",
     })
       .then((r) => r.json())

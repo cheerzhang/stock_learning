@@ -71,6 +71,15 @@
       "avgBuyPrice": 157,
       "openingProfit": 12837,
       "color": "#c7972e"
+    },
+    {
+      "id": "5b042ef3-7d46-4791-be10-83bf2c7dbe29",
+      "code": "GOOG",
+      "name": "谷歌",
+      "type": "股票",
+      "avgBuyPrice": 306,
+      "openingProfit": -1.45,
+      "color": "#536ea8"
     }
   ],
   "prices": [
@@ -184,6 +193,61 @@
       "date": "2026-08-07",
       "value": 107.05,
       "flow": 0
+    },
+    {
+      "id": "de97580b-425c-4f89-9292-e64421efbfb8",
+      "assetId": "5b042ef3-7d46-4791-be10-83bf2c7dbe29",
+      "date": "2026-08-07",
+      "value": 498
+    },
+    {
+      "id": "e87ef468-d2d9-4142-9420-4f2a69da9a67",
+      "assetId": "047c8eff-238a-4603-a751-0c1b2fb56d3c",
+      "date": "2026-08-07",
+      "value": 8633,
+      "flow": 0
+    },
+    {
+      "id": "0c0e6cc1-fbc3-44bf-acb5-07e85d65c6b2",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb",
+      "date": "2026-08-07",
+      "value": 17999,
+      "flow": 0
+    },
+    {
+      "id": "fe70c5ba-dd3a-4474-99cf-b2a6a10a5c09",
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
+      "date": "2026-08-07",
+      "value": 15914,
+      "flow": 0
+    },
+    {
+      "id": "529cedfb-cf1c-45e6-a051-184bf99c4f48",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15",
+      "date": "2026-08-07",
+      "value": 77093,
+      "flow": -191
+    },
+    {
+      "id": "a2d46b61-bf1c-4097-97d9-c2c1ea1a4d12",
+      "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e",
+      "date": "2026-08-07",
+      "value": 295,
+      "flow": 0
+    },
+    {
+      "id": "f63623fa-a0c0-4c87-981b-13787f9c673a",
+      "assetId": "9d6e1537-5929-448c-8355-0e962409443e",
+      "date": "2026-08-07",
+      "value": 473,
+      "flow": 0
+    },
+    {
+      "id": "49e9da08-32d8-40d0-8938-4172d6df7aa0",
+      "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51",
+      "date": "2026-08-07",
+      "value": 16642,
+      "flow": 500
     }
   ],
   "entries": [
@@ -192,56 +256,64 @@
       "type": "dividend",
       "date": "2026-07-01",
       "amount": 0.03,
-      "note": "Marvell"
+      "note": "Marvell",
+      "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e"
     },
     {
       "id": "12cb43d2-4332-4c66-8595-f0ce7acb3592",
       "type": "dividend",
       "date": "2026-07-02",
       "amount": 41.6,
-      "note": "Oracle"
+      "note": "Oracle",
+      "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51"
     },
     {
       "id": "2870fe04-d2d3-497f-85aa-cfa3b5d32153",
       "type": "dividend",
       "date": "2026-07-03",
       "amount": 34.13,
-      "note": "TSM"
+      "note": "TSM",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb"
     },
     {
       "id": "fb2ebffb-0a5c-48ea-8ebb-258ca7f4d898",
       "type": "dividend",
       "date": "2026-06-01",
       "amount": 77.5,
-      "note": "Nvida"
+      "note": "Nvida",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15"
     },
     {
       "id": "77b896db-5d6d-4569-9b38-b66979a167b3",
       "type": "dividend",
       "date": "2026-06-02",
       "amount": 17.95,
-      "note": "Microsoft"
+      "note": "Microsoft",
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762"
     },
     {
       "id": "78276bf7-5f67-4eea-bf5a-7a5c5dd850e4",
       "type": "dividend",
       "date": "2026-04-01",
       "amount": 3.13,
-      "note": "Nvida"
+      "note": "Nvida",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15"
     },
     {
       "id": "a9b4e050-2ad4-48f1-84e1-573ec189f2c2",
       "type": "dividend",
       "date": "2026-04-02",
       "amount": 37.32,
-      "note": "TSM"
+      "note": "TSM",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb"
     },
     {
       "id": "ee9b5748-d0d6-4b3b-8769-e8a535ea9ff4",
       "type": "dividend",
       "date": "2026-01-07",
       "amount": 28.97,
-      "note": "TSM"
+      "note": "TSM",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb"
     },
     {
       "id": "5db159c0-6b34-48f7-88a5-ca40da50bcb4",
