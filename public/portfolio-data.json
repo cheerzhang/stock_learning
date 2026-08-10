@@ -80,6 +80,15 @@
       "avgBuyPrice": 306,
       "openingProfit": -1.45,
       "color": "#536ea8"
+    },
+    {
+      "id": "99b8e0f9-d5f3-492c-9f99-dcb2efee8ac0",
+      "code": "VUAA",
+      "name": "SP500",
+      "type": "股票",
+      "avgBuyPrice": 129,
+      "openingProfit": 0.58,
+      "color": "#915f84"
     }
   ],
   "prices": [
@@ -248,6 +257,75 @@
       "date": "2026-08-07",
       "value": 16642,
       "flow": 500
+    },
+    {
+      "id": "bb2918ed-8672-4e2c-9831-4f4e854e70b6",
+      "assetId": "9d6e1537-5929-448c-8355-0e962409443e",
+      "date": "2026-08-10",
+      "value": 463,
+      "flow": 0
+    },
+    {
+      "id": "ab90655f-5e25-401a-b16b-8df5d0f945fd",
+      "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e",
+      "date": "2026-08-10",
+      "value": 291,
+      "flow": 0
+    },
+    {
+      "id": "7c323835-7b94-40ea-a0df-2d169e2b6456",
+      "assetId": "c40f6e3b-2326-4f24-9668-27c9d5457306",
+      "date": "2026-08-10",
+      "value": 107.62,
+      "flow": 0
+    },
+    {
+      "id": "0ba651ce-7848-47f7-87a1-e440c08ab719",
+      "assetId": "047c8eff-238a-4603-a751-0c1b2fb56d3c",
+      "date": "2026-08-10",
+      "value": 8969,
+      "flow": 0
+    },
+    {
+      "id": "f7aa743a-431a-42f6-a005-1db85c412f9c",
+      "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51",
+      "date": "2026-08-10",
+      "value": 17792,
+      "flow": 500
+    },
+    {
+      "id": "86fd36d1-b52d-470e-832f-f73a48fcedd9",
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
+      "date": "2026-08-10",
+      "value": 16153,
+      "flow": 0
+    },
+    {
+      "id": "3e3f30cd-5969-4702-b481-543207699793",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb",
+      "date": "2026-08-10",
+      "value": 18155,
+      "flow": 0
+    },
+    {
+      "id": "90656fbe-3226-4fe0-a849-03252dcdf84b",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15",
+      "date": "2026-08-10",
+      "value": 73692,
+      "flow": -1914
+    },
+    {
+      "id": "1252e432-ad02-4873-9888-c563757aaa99",
+      "assetId": "5b042ef3-7d46-4791-be10-83bf2c7dbe29",
+      "date": "2026-08-10",
+      "value": 497,
+      "flow": 0
+    },
+    {
+      "id": "25408987-a4d2-42df-9796-3a0cfe25b44a",
+      "assetId": "99b8e0f9-d5f3-492c-9f99-dcb2efee8ac0",
+      "date": "2026-08-10",
+      "value": 500.58
     }
   ],
   "entries": [
