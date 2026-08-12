@@ -396,6 +396,76 @@
       "date": "2026-08-11",
       "value": 17570,
       "flow": 500
+    },
+    {
+      "id": "e8438b76-04b0-41e3-8e96-bff033a251fb",
+      "assetId": "c40f6e3b-2326-4f24-9668-27c9d5457306",
+      "date": "2026-08-12",
+      "value": 109.4,
+      "flow": 0
+    },
+    {
+      "id": "d601e3ce-03b5-4480-9ef9-c34c8d84c27d",
+      "assetId": "99b8e0f9-d5f3-492c-9f99-dcb2efee8ac0",
+      "date": "2026-08-12",
+      "value": 500.1,
+      "flow": 0
+    },
+    {
+      "id": "d4e922f2-62da-4ae0-a924-c739f6e31129",
+      "assetId": "047c8eff-238a-4603-a751-0c1b2fb56d3c",
+      "date": "2026-08-12",
+      "value": 8575,
+      "flow": 0
+    },
+    {
+      "id": "25e05814-ab9b-4a9a-ac70-00631f3b2a48",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb",
+      "date": "2026-08-12",
+      "value": 18500,
+      "flow": 0
+    },
+    {
+      "id": "d50e2cbb-1fb1-4720-8515-9eedd57905b0",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15",
+      "date": "2026-08-12",
+      "value": 73560,
+      "flow": -1930
+    },
+    {
+      "id": "19e1cbb4-aebd-4d4d-8562-134cb0d8fad9",
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
+      "date": "2026-08-12",
+      "value": 15675,
+      "flow": 0
+    },
+    {
+      "id": "54128eda-442f-4e21-8f5c-d47ed2f6d488",
+      "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e",
+      "date": "2026-08-12",
+      "value": 302.55,
+      "flow": 0
+    },
+    {
+      "id": "e46a0549-793a-47dc-a629-b66bc6eae77a",
+      "assetId": "5b042ef3-7d46-4791-be10-83bf2c7dbe29",
+      "date": "2026-08-12",
+      "value": 980,
+      "flow": 500
+    },
+    {
+      "id": "86250cf9-1954-43cd-8021-7adf72aa361b",
+      "assetId": "9d6e1537-5929-448c-8355-0e962409443e",
+      "date": "2026-08-12",
+      "value": 472,
+      "flow": 0
+    },
+    {
+      "id": "ee2f8493-aa45-44df-a2db-d0b96cbf4a58",
+      "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51",
+      "date": "2026-08-12",
+      "value": 18622,
+      "flow": 500
     }
   ],
   "entries": [
