@@ -80,6 +80,15 @@
       "avgBuyPrice": 306,
       "openingProfit": -1.45,
       "color": "#536ea8"
+    },
+    {
+      "id": "99b8e0f9-d5f3-492c-9f99-dcb2efee8ac0",
+      "code": "VUAA",
+      "name": "SP500",
+      "type": "股票",
+      "avgBuyPrice": 129,
+      "openingProfit": 0.58,
+      "color": "#915f84"
     }
   ],
   "prices": [
@@ -247,6 +256,215 @@
       "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51",
       "date": "2026-08-07",
       "value": 16642,
+      "flow": 500
+    },
+    {
+      "id": "bb2918ed-8672-4e2c-9831-4f4e854e70b6",
+      "assetId": "9d6e1537-5929-448c-8355-0e962409443e",
+      "date": "2026-08-10",
+      "value": 463,
+      "flow": 0
+    },
+    {
+      "id": "ab90655f-5e25-401a-b16b-8df5d0f945fd",
+      "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e",
+      "date": "2026-08-10",
+      "value": 291,
+      "flow": 0
+    },
+    {
+      "id": "7c323835-7b94-40ea-a0df-2d169e2b6456",
+      "assetId": "c40f6e3b-2326-4f24-9668-27c9d5457306",
+      "date": "2026-08-10",
+      "value": 107.62,
+      "flow": 0
+    },
+    {
+      "id": "0ba651ce-7848-47f7-87a1-e440c08ab719",
+      "assetId": "047c8eff-238a-4603-a751-0c1b2fb56d3c",
+      "date": "2026-08-10",
+      "value": 8969,
+      "flow": 0
+    },
+    {
+      "id": "f7aa743a-431a-42f6-a005-1db85c412f9c",
+      "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51",
+      "date": "2026-08-10",
+      "value": 17792,
+      "flow": 500
+    },
+    {
+      "id": "86fd36d1-b52d-470e-832f-f73a48fcedd9",
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
+      "date": "2026-08-10",
+      "value": 16153,
+      "flow": 0
+    },
+    {
+      "id": "3e3f30cd-5969-4702-b481-543207699793",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb",
+      "date": "2026-08-10",
+      "value": 18155,
+      "flow": 0
+    },
+    {
+      "id": "90656fbe-3226-4fe0-a849-03252dcdf84b",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15",
+      "date": "2026-08-10",
+      "value": 73692,
+      "flow": -1914
+    },
+    {
+      "id": "1252e432-ad02-4873-9888-c563757aaa99",
+      "assetId": "5b042ef3-7d46-4791-be10-83bf2c7dbe29",
+      "date": "2026-08-10",
+      "value": 497,
+      "flow": 0
+    },
+    {
+      "id": "25408987-a4d2-42df-9796-3a0cfe25b44a",
+      "assetId": "99b8e0f9-d5f3-492c-9f99-dcb2efee8ac0",
+      "date": "2026-08-10",
+      "value": 500.58
+    },
+    {
+      "id": "9a795c01-ddcd-4f81-b2a9-8d9a279d30db",
+      "assetId": "c40f6e3b-2326-4f24-9668-27c9d5457306",
+      "date": "2026-08-11",
+      "value": 108.53,
+      "flow": 0
+    },
+    {
+      "id": "cdda9ad3-b82f-499a-a9df-d8b1f33ff8bb",
+      "assetId": "99b8e0f9-d5f3-492c-9f99-dcb2efee8ac0",
+      "date": "2026-08-11",
+      "value": 500.1,
+      "flow": 0
+    },
+    {
+      "id": "29904bd8-1435-408c-99b9-b6044d9422c0",
+      "assetId": "047c8eff-238a-4603-a751-0c1b2fb56d3c",
+      "date": "2026-08-11",
+      "value": 8855,
+      "flow": 0
+    },
+    {
+      "id": "1afe972b-504f-4668-b69f-83e6dd5fb9fd",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb",
+      "date": "2026-08-11",
+      "value": 18127,
+      "flow": 0
+    },
+    {
+      "id": "f6d99715-1207-4c2e-86fd-ea971707d840",
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
+      "date": "2026-08-11",
+      "value": 15999,
+      "flow": 0
+    },
+    {
+      "id": "da02993f-c385-4ab4-a514-7a1755c21f9f",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15",
+      "date": "2026-08-11",
+      "value": 73627,
+      "flow": 0
+    },
+    {
+      "id": "bdc023a4-62d6-4d48-a17f-3b77dd4ec496",
+      "assetId": "5b042ef3-7d46-4791-be10-83bf2c7dbe29",
+      "date": "2026-08-11",
+      "value": 485,
+      "flow": 0
+    },
+    {
+      "id": "0a968dcc-252d-41b9-8f62-18120f8d7cee",
+      "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e",
+      "date": "2026-08-11",
+      "value": 287,
+      "flow": 0
+    },
+    {
+      "id": "87936934-db69-45e1-bba9-f43f11ff5419",
+      "assetId": "9d6e1537-5929-448c-8355-0e962409443e",
+      "date": "2026-08-11",
+      "value": 458,
+      "flow": 0
+    },
+    {
+      "id": "00b21323-6082-460c-b2fa-66fd9de772ab",
+      "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51",
+      "date": "2026-08-11",
+      "value": 17570,
+      "flow": 500
+    },
+    {
+      "id": "e8438b76-04b0-41e3-8e96-bff033a251fb",
+      "assetId": "c40f6e3b-2326-4f24-9668-27c9d5457306",
+      "date": "2026-08-12",
+      "value": 109.4,
+      "flow": 0
+    },
+    {
+      "id": "d601e3ce-03b5-4480-9ef9-c34c8d84c27d",
+      "assetId": "99b8e0f9-d5f3-492c-9f99-dcb2efee8ac0",
+      "date": "2026-08-12",
+      "value": 500.1,
+      "flow": 0
+    },
+    {
+      "id": "d4e922f2-62da-4ae0-a924-c739f6e31129",
+      "assetId": "047c8eff-238a-4603-a751-0c1b2fb56d3c",
+      "date": "2026-08-12",
+      "value": 8575,
+      "flow": 0
+    },
+    {
+      "id": "25e05814-ab9b-4a9a-ac70-00631f3b2a48",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb",
+      "date": "2026-08-12",
+      "value": 18500,
+      "flow": 0
+    },
+    {
+      "id": "d50e2cbb-1fb1-4720-8515-9eedd57905b0",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15",
+      "date": "2026-08-12",
+      "value": 73560,
+      "flow": -1930
+    },
+    {
+      "id": "19e1cbb4-aebd-4d4d-8562-134cb0d8fad9",
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
+      "date": "2026-08-12",
+      "value": 15675,
+      "flow": 0
+    },
+    {
+      "id": "54128eda-442f-4e21-8f5c-d47ed2f6d488",
+      "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e",
+      "date": "2026-08-12",
+      "value": 302.55,
+      "flow": 0
+    },
+    {
+      "id": "e46a0549-793a-47dc-a629-b66bc6eae77a",
+      "assetId": "5b042ef3-7d46-4791-be10-83bf2c7dbe29",
+      "date": "2026-08-12",
+      "value": 980,
+      "flow": 500
+    },
+    {
+      "id": "86250cf9-1954-43cd-8021-7adf72aa361b",
+      "assetId": "9d6e1537-5929-448c-8355-0e962409443e",
+      "date": "2026-08-12",
+      "value": 472,
+      "flow": 0
+    },
+    {
+      "id": "ee2f8493-aa45-44df-a2db-d0b96cbf4a58",
+      "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51",
+      "date": "2026-08-12",
+      "value": 18622,
       "flow": 500
     }
   ],
