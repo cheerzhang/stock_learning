@@ -1,0 +1,40 @@
+name: Sync portfolio data for GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - public/portfolio-data.json
+      - .github/workflows/sync-portfolio-data.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-portfolio-data
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Copy data to the GitHub Pages root
+        run: cp public/portfolio-data.json portfolio-data.json
+
+      - name: Commit the synchronized data
+        run: |
+          if git diff --quiet -- portfolio-data.json; then
+            echo "Root portfolio data is already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add portfolio-data.json
+          git commit -m "Sync portfolio data for GitHub Pages"
+          git push
