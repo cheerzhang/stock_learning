@@ -231,6 +231,35 @@ function AnalysisPage({
   const monthly = cumulative.map(
     (value, index) => value - (index ? cumulative[index - 1] : 0),
   );
+  const monthlyGrowth = Array.from(
+    { length: monthsElapsed },
+    (_, index) => {
+          const month = `${year}-${String(index + 1).padStart(2, "0")}`;
+          const monthStart = `${month}-01`;
+          const monthEnd = `${month}-31`;
+          let base = 0;
+          let gain = 0;
+
+          rows.forEach((row) => {
+            const before = row.prices.filter((p) => p.date < monthStart).at(-1);
+            const firstInMonth = row.prices.find(
+              (p) => p.date >= monthStart && p.date <= monthEnd,
+            );
+            const opening = before ?? firstInMonth;
+            if (!opening) return;
+            const closing =
+              row.prices.filter((p) => p.date <= monthEnd).at(-1) ?? opening;
+            const flows = row.prices
+              .filter((p) => p.date > opening.date && p.date <= monthEnd)
+              .reduce((sum, p) => sum + (p.flow ?? 0), 0);
+            base += opening.value;
+            gain += closing.value - opening.value - flows;
+          });
+
+          return { month, value: base ? (gain / base) * 100 : 0 };
+    },
+  );
+  const maxGrowth = Math.max(1, ...monthlyGrowth.map(({ value }) => Math.abs(value)));
   const maxBar = Math.max(1, ...monthly.map(Math.abs));
   const assetFour = totalValue * 0.04,
     profitFour = totalProfit * 0.04;
@@ -326,6 +355,31 @@ function AnalysisPage({
                 />
               </div>
               <time>{index + 1}月</time>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="growth-panel">
+        <div className="section-head">
+          <div>
+            <span className="kicker">MONTHLY GROWTH</span>
+            <h2>每月增长率</h2>
+            <p>（月末价值 − 月初价值 − 当月新增投入）÷ 月初价值。</p>
+          </div>
+        </div>
+        <div className="growth-bars">
+          {monthlyGrowth.map(({ month, value }) => (
+            <div key={month}>
+              <strong className={value >= 0 ? "up" : "down"}>
+                {value >= 0 ? "+" : ""}{value.toFixed(2)}%
+              </strong>
+              <div className="growth-bar-space">
+                <i
+                  className={value >= 0 ? "positive" : "negative"}
+                  style={{ height: `${Math.max((Math.abs(value) / maxGrowth) * 46, value ? 2 : 0)}%` }}
+                />
+              </div>
+              <time>{Number(month.slice(5))}月</time>
             </div>
           ))}
         </div>
