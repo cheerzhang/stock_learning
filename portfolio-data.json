@@ -1446,6 +1446,76 @@
       "date": "2026-09-01",
       "value": 989.91,
       "flow": 0
+    },
+    {
+      "id": "824f802a-a7e6-413b-9b2f-cc9174166441",
+      "assetId": "9d6e1537-5929-448c-8355-0e962409443e",
+      "date": "2026-09-02",
+      "value": 1018.77,
+      "flow": 0
+    },
+    {
+      "id": "e4a9de07-96e6-4db5-a9db-408bd83c0c41",
+      "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e",
+      "date": "2026-09-02",
+      "value": 281.12,
+      "flow": 0
+    },
+    {
+      "id": "4f618ba2-db3c-46bb-86e6-5cce3d59c84d",
+      "assetId": "c40f6e3b-2326-4f24-9668-27c9d5457306",
+      "date": "2026-09-02",
+      "value": 107.68,
+      "flow": 0
+    },
+    {
+      "id": "e99dc424-e2b7-4eb0-bad5-f1d3352b4753",
+      "assetId": "047c8eff-238a-4603-a751-0c1b2fb56d3c",
+      "date": "2026-09-02",
+      "value": 8526.83,
+      "flow": 0
+    },
+    {
+      "id": "b0cc18f6-cdac-4418-b054-ce5786b56ebb",
+      "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51",
+      "date": "2026-09-02",
+      "value": 19523.03,
+      "flow": 0
+    },
+    {
+      "id": "fc94b7c0-6290-4cbf-916f-2cb953948332",
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
+      "date": "2026-09-02",
+      "value": 15731.58,
+      "flow": 0
+    },
+    {
+      "id": "5c302a3d-6713-4943-8b4f-d35af20bd16e",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb",
+      "date": "2026-09-02",
+      "value": 17794.49,
+      "flow": 0
+    },
+    {
+      "id": "34c28810-9ef4-4da6-a547-5a6119c44b46",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15",
+      "date": "2026-09-02",
+      "value": 69137.38,
+      "flow": 0
+    },
+    {
+      "id": "3cff68bd-b809-4bf3-9988-b605195f2ec3",
+      "assetId": "5b042ef3-7d46-4791-be10-83bf2c7dbe29",
+      "date": "2026-09-02",
+      "value": 1437.85,
+      "flow": 0
+    },
+    {
+      "id": "75053a2e-8736-4418-900b-290fd35ad7d7",
+      "assetId": "99b8e0f9-d5f3-492c-9f99-dcb2efee8ac0",
+      "date": "2026-09-02",
+      "value": 993.01,
+      "flow": 0
     }
   ],
   "entries": [
@@ -1536,6 +1606,12 @@
       "type": "fee",
       "date": "2026-04-07",
       "amount": 13.88
+    },
+    {
+      "id": "c8b77953-058a-4793-b18d-da7b0af0c811",
+      "type": "fee",
+      "date": "2026-09-02",
+      "amount": 34.67
     }
   ]
 }
