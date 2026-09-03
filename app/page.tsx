@@ -262,7 +262,8 @@ function AnalysisPage({
   const maxGrowth = Math.max(1, ...monthlyGrowth.map(({ value }) => Math.abs(value)));
   const maxBar = Math.max(1, ...monthly.map(Math.abs));
   const assetFour = totalValue * 0.04,
-    profitFour = totalProfit * 0.04;
+    profitFour = totalProfit * 0.04,
+    profitTen = totalProfit * 0.1;
   const cards = [
     {
       label: "截至目前累计收益",
@@ -319,7 +320,7 @@ function AnalysisPage({
           <em>收益意味着什么。</em>
         </h1>
         <p>
-          以 2026 年 1 月 1 日作为分析起点，拆解累计收益、月均能力与 4% 指标。
+          以 2026 年 1 月 1 日作为分析起点，拆解累计收益、月均能力与年度比例指标。
         </p>
       </section>
       <section className="analysis-kpis">
@@ -350,7 +351,7 @@ function AnalysisPage({
                 <i
                   className={value >= 0 ? "positive" : "negative"}
                   style={{
-                    height: `${Math.max((Math.abs(value) / maxBar) * 100, 3)}%`,
+                    height: `${Math.max((Math.abs(value) / maxBar) * 46, value ? 2 : 0)}%`,
                   }}
                 />
               </div>
@@ -404,6 +405,17 @@ function AnalysisPage({
             平均每月 <b>{money(profitFour / 12)}</b>
           </p>
           <small>{money(totalProfit)} × 4%</small>
+        </div>
+        <div>
+          <span className="kicker">10% OF ANNUAL PROFIT</span>
+          <h2>年收益部分的 10%</h2>
+          <strong className={profitTen >= 0 ? "up" : "down"}>
+            {money(profitTen)}
+          </strong>
+          <p>
+            平均每月 <b>{money(profitTen / 12)}</b>
+          </p>
+          <small>{money(totalProfit)} × 10%</small>
         </div>
       </section>
       <section className="method">
