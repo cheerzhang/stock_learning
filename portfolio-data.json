@@ -1656,6 +1656,76 @@
       "date": "2026-09-04",
       "value": 994.83,
       "flow": 0
+    },
+    {
+      "id": "20bb8003-fd7e-49af-bb41-1ddafe7d0093",
+      "assetId": "9d6e1537-5929-448c-8355-0e962409443e",
+      "date": "2026-09-08",
+      "value": 1189.28,
+      "flow": 0
+    },
+    {
+      "id": "498e6147-1363-463a-864e-f274da601396",
+      "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e",
+      "date": "2026-09-08",
+      "value": 309.81,
+      "flow": 0
+    },
+    {
+      "id": "74ebedda-893d-44d1-8862-3129f486565d",
+      "assetId": "c40f6e3b-2326-4f24-9668-27c9d5457306",
+      "date": "2026-09-08",
+      "value": 108.12,
+      "flow": 0
+    },
+    {
+      "id": "8afda95b-20be-4bd2-aefa-5d45b7dc2c3a",
+      "assetId": "047c8eff-238a-4603-a751-0c1b2fb56d3c",
+      "date": "2026-09-08",
+      "value": 8559.65,
+      "flow": 0
+    },
+    {
+      "id": "a73ade70-dd49-42dd-a18c-32cdec447440",
+      "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51",
+      "date": "2026-09-08",
+      "value": 21641.51,
+      "flow": 0
+    },
+    {
+      "id": "dd610630-1e6c-4822-826e-bdcd235a0687",
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
+      "date": "2026-09-08",
+      "value": 15509.92,
+      "flow": 0
+    },
+    {
+      "id": "a6894ffd-4bfc-4f3c-a260-af2835b046ea",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb",
+      "date": "2026-09-08",
+      "value": 18785.29,
+      "flow": 0
+    },
+    {
+      "id": "20ba3f33-78e5-4aad-a13f-f0c16d6d0610",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15",
+      "date": "2026-09-08",
+      "value": 69253,
+      "flow": 0
+    },
+    {
+      "id": "100e3ca6-c77b-4432-8b69-6ccd5121f979",
+      "assetId": "5b042ef3-7d46-4791-be10-83bf2c7dbe29",
+      "date": "2026-09-08",
+      "value": 1435.04,
+      "flow": 0
+    },
+    {
+      "id": "196c9828-491f-48bd-8399-792c3a85749d",
+      "assetId": "99b8e0f9-d5f3-492c-9f99-dcb2efee8ac0",
+      "date": "2026-09-08",
+      "value": 1492.37,
+      "flow": 500
     }
   ],
   "entries": [
