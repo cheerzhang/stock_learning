@@ -1866,6 +1866,76 @@
       "date": "2026-09-10",
       "value": 1974.83,
       "flow": 0
+    },
+    {
+      "id": "2c41c543-7957-4922-8e9a-20bf942fe0aa",
+      "assetId": "9d6e1537-5929-448c-8355-0e962409443e",
+      "date": "2026-09-11",
+      "value": 1165.7,
+      "flow": 0
+    },
+    {
+      "id": "12f19872-1b7b-4484-96e3-5507842b95f2",
+      "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e",
+      "date": "2026-09-11",
+      "value": 321.78,
+      "flow": 0
+    },
+    {
+      "id": "1cedbea1-8fae-4e04-ad6f-d4ce7f188d0e",
+      "assetId": "c40f6e3b-2326-4f24-9668-27c9d5457306",
+      "date": "2026-09-11",
+      "value": 107.59,
+      "flow": 0
+    },
+    {
+      "id": "49245bc6-637d-42b7-933e-61e4abb77186",
+      "assetId": "047c8eff-238a-4603-a751-0c1b2fb56d3c",
+      "date": "2026-09-11",
+      "value": 8426.39,
+      "flow": 0
+    },
+    {
+      "id": "45b3d67c-8245-4d6a-97de-7a7622b29f0e",
+      "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51",
+      "date": "2026-09-11",
+      "value": 20282.7,
+      "flow": 0
+    },
+    {
+      "id": "73723049-5358-4913-96d7-fcdfaa8699b6",
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
+      "date": "2026-09-11",
+      "value": 15734.57,
+      "flow": 0
+    },
+    {
+      "id": "3f96382e-e0be-479a-8bb6-8b965b33c099",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb",
+      "date": "2026-09-11",
+      "value": 18521.35,
+      "flow": 0
+    },
+    {
+      "id": "ce9a768c-f50e-4a9d-bf60-b2997682bde0",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15",
+      "date": "2026-09-11",
+      "value": 67253.74,
+      "flow": 0
+    },
+    {
+      "id": "4731eb21-dcae-4e03-ae90-4cbcba211b29",
+      "assetId": "5b042ef3-7d46-4791-be10-83bf2c7dbe29",
+      "date": "2026-09-11",
+      "value": 1446.17,
+      "flow": 0
+    },
+    {
+      "id": "8304e9c0-f038-40d2-a8d2-d87abc4f099a",
+      "assetId": "99b8e0f9-d5f3-492c-9f99-dcb2efee8ac0",
+      "date": "2026-09-11",
+      "value": 1995.43,
+      "flow": 0
     }
   ],
   "entries": [
@@ -1962,6 +2032,13 @@
       "type": "fee",
       "date": "2026-09-02",
       "amount": 34.67
+    },
+    {
+      "id": "5dc2fd6b-4ac0-4766-8ab2-5e508cea06ad",
+      "type": "dividend",
+      "date": "2026-09-11",
+      "amount": 24.33,
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762"
     }
   ]
 }
