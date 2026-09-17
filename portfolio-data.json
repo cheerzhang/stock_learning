@@ -2146,6 +2146,76 @@
       "date": "2026-09-16",
       "value": 1992.38,
       "flow": 0
+    },
+    {
+      "id": "dce93a06-e4c1-45ec-a0ab-99f9090ee7cc",
+      "assetId": "9d6e1537-5929-448c-8355-0e962409443e",
+      "date": "2026-09-17",
+      "value": 1247.56,
+      "flow": 0
+    },
+    {
+      "id": "aac9cca6-fc5b-4071-8872-6c674b564f99",
+      "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e",
+      "date": "2026-09-17",
+      "value": 331.53,
+      "flow": 0
+    },
+    {
+      "id": "d807a4a1-639c-4201-9435-ecbfe8df6b59",
+      "assetId": "c40f6e3b-2326-4f24-9668-27c9d5457306",
+      "date": "2026-09-17",
+      "value": 108.5,
+      "flow": 0
+    },
+    {
+      "id": "75e31fba-995f-4dc5-a0ba-83de8a28150a",
+      "assetId": "047c8eff-238a-4603-a751-0c1b2fb56d3c",
+      "date": "2026-09-17",
+      "value": 8978.63,
+      "flow": 0
+    },
+    {
+      "id": "d20c90f3-5b21-48a5-984c-14c7e00732d6",
+      "assetId": "05c91c56-3c4e-4c87-b222-fec95be90c51",
+      "date": "2026-09-17",
+      "value": 20880.43,
+      "flow": 0
+    },
+    {
+      "id": "df96ddc1-ea82-4eaa-8c1d-45cfe7b87ed2",
+      "assetId": "17bbfaa2-937b-477a-9431-e9bdd9f9e762",
+      "date": "2026-09-17",
+      "value": 15931.45,
+      "flow": 0
+    },
+    {
+      "id": "49e15d70-eab3-4d95-857f-8357f3c1a973",
+      "assetId": "157a325f-02b4-49cb-b4a4-0f86f438fffb",
+      "date": "2026-09-17",
+      "value": 18613.16,
+      "flow": 0
+    },
+    {
+      "id": "5febf4e8-eaf6-47c0-addb-74b78ca6b8f6",
+      "assetId": "9c6e22f3-ec7c-49dc-8b7a-6bcb348fed15",
+      "date": "2026-09-17",
+      "value": 68249.08,
+      "flow": 0
+    },
+    {
+      "id": "41defe89-2c93-4c77-b1e5-3b99abd37568",
+      "assetId": "5b042ef3-7d46-4791-be10-83bf2c7dbe29",
+      "date": "2026-09-17",
+      "value": 1495.14,
+      "flow": 0
+    },
+    {
+      "id": "362ba2d4-7ae4-4d67-baaa-7b5219994077",
+      "assetId": "99b8e0f9-d5f3-492c-9f99-dcb2efee8ac0",
+      "date": "2026-09-17",
+      "value": 2006.9,
+      "flow": 0
     }
   ],
   "entries": [
