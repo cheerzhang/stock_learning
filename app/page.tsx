@@ -264,6 +264,26 @@ function AnalysisPage({
   const assetFour = totalValue * 0.04,
     profitFour = totalProfit * 0.04,
     profitTen = totalProfit * 0.1;
+  const projectionYears = [5, 10, 15];
+  const annualReturn = 0.08;
+  const sp500Projections = [
+    {
+      label: "全部投入 S&P 500",
+      kicker: "100% INVESTED",
+      invested: totalValue,
+      note: "全部资产参与复利",
+      valueAfter: (years: number) =>
+        totalValue * Math.pow(1 + annualReturn, years),
+    },
+    {
+      label: "50% 投入 S&P 500",
+      kicker: "50% INVESTED",
+      invested: totalValue * 0.5,
+      note: "另一半资产保持不变",
+      valueAfter: (years: number) =>
+        totalValue * 0.5 + totalValue * 0.5 * Math.pow(1 + annualReturn, years),
+    },
+  ];
   const cards = [
     {
       label: "截至目前累计收益",
@@ -329,6 +349,31 @@ function AnalysisPage({
             <span>{card.label}</span>
             <strong className={card.tone}>{card.value}</strong>
             <small>{card.sub}</small>
+          </div>
+        ))}
+      </section>
+      <section className="projection-grid">
+        {sp500Projections.map((projection) => (
+          <div className="projection-card" key={projection.kicker}>
+            <div className="projection-heading">
+              <div>
+                <span className="kicker">{projection.kicker}</span>
+                <h2>{projection.label}</h2>
+              </div>
+              <span className="projection-rate">年化 8%</span>
+            </div>
+            <p>
+              当前投入 <strong>{money(projection.invested)}</strong>，按年复利估算；
+              {projection.note}
+            </p>
+            <div className="projection-values">
+              {projectionYears.map((years) => (
+                <div key={years}>
+                  <span>{years} 年后</span>
+                  <strong>{money(projection.valueAfter(years))}</strong>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </section>
