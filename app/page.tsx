@@ -272,6 +272,7 @@ function AnalysisPage({
       kicker: "100% INVESTED",
       invested: totalValue,
       note: "全部资产参与复利",
+      showMonthlyWithdrawal: false,
       valueAfter: (years: number) =>
         totalValue * Math.pow(1 + annualReturn, years),
     },
@@ -279,9 +280,10 @@ function AnalysisPage({
       label: "50% 投入 S&P 500",
       kicker: "50% INVESTED",
       invested: totalValue * 0.5,
-      note: "另一半资产保持不变",
+      note: "仅计算这 50% 的资产",
+      showMonthlyWithdrawal: true,
       valueAfter: (years: number) =>
-        totalValue * 0.5 + totalValue * 0.5 * Math.pow(1 + annualReturn, years),
+        totalValue * 0.5 * Math.pow(1 + annualReturn, years),
     },
   ];
   const cards = [
@@ -371,6 +373,13 @@ function AnalysisPage({
                 <div key={years}>
                   <span>{years} 年后</span>
                   <strong>{money(projection.valueAfter(years))}</strong>
+                  {projection.showMonthlyWithdrawal && (
+                    <small className="projection-withdrawal">
+                      每月可用
+                      <b>{money((projection.valueAfter(years) * 0.04) / 12)}</b>
+                      <em>按每年提取 4%</em>
+                    </small>
+                  )}
                 </div>
               ))}
             </div>
