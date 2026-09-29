@@ -261,10 +261,8 @@ function AnalysisPage({
   );
   const maxGrowth = Math.max(1, ...monthlyGrowth.map(({ value }) => Math.abs(value)));
   const maxBar = Math.max(1, ...monthly.map(Math.abs));
-  const assetFour = totalValue * 0.04,
-    profitFour = totalProfit * 0.04,
-    profitTen = totalProfit * 0.1;
   const projectionYears = [5, 10, 15];
+  const profitProjectionYears = [1, 2, 5];
   const annualReturn = 0.08;
   const sp500Projections = [
     {
@@ -439,37 +437,38 @@ function AnalysisPage({
           ))}
         </div>
       </section>
-      <section className="four-grid">
-        <div>
-          <span className="kicker">4% OF ASSETS</span>
-          <h2>总资产的 4%</h2>
-          <strong>{money(assetFour)}</strong>
+      <section className="projection-grid single-card">
+        <div className="projection-card">
+          <div className="projection-heading">
+            <div>
+              <span className="kicker">ANNUAL PROFIT INVESTED</span>
+              <h2>本年度收益投入大盘</h2>
+            </div>
+            <span className="projection-rate">年化 8%</span>
+          </div>
           <p>
-            平均每月 <b>{money(assetFour / 12)}</b>
+            以本年度累计收益 <strong>{money(totalProfit)}</strong> 为本金，按年复利估算
           </p>
-          <small>{money(totalValue)} × 4%</small>
-        </div>
-        <div>
-          <span className="kicker">4% OF PROFIT</span>
-          <h2>收益部分的 4%</h2>
-          <strong className={profitFour >= 0 ? "up" : "down"}>
-            {money(profitFour)}
-          </strong>
-          <p>
-            平均每月 <b>{money(profitFour / 12)}</b>
-          </p>
-          <small>{money(totalProfit)} × 4%</small>
-        </div>
-        <div>
-          <span className="kicker">10% OF ANNUAL PROFIT</span>
-          <h2>年收益部分的 10%</h2>
-          <strong className={profitTen >= 0 ? "up" : "down"}>
-            {money(profitTen)}
-          </strong>
-          <p>
-            平均每月 <b>{money(profitTen / 12)}</b>
-          </p>
-          <small>{money(totalProfit)} × 10%</small>
+          <div className="projection-values">
+            {profitProjectionYears.map((years) => (
+              <div key={years}>
+                <span>{years} 年后</span>
+                <strong className={totalProfit >= 0 ? "up" : "down"}>
+                  {money(totalProfit * Math.pow(1 + annualReturn, years))}
+                </strong>
+                <small className="projection-withdrawal">
+                  每月可用
+                  <b>
+                    {money(
+                      (totalProfit * Math.pow(1 + annualReturn, years) * 0.04) /
+                        12,
+                    )}
+                  </b>
+                  <em>按每年提取 4%</em>
+                </small>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       <section className="method">
