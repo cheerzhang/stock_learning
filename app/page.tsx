@@ -262,7 +262,8 @@ function AnalysisPage({
   const maxGrowth = Math.max(1, ...monthlyGrowth.map(({ value }) => Math.abs(value)));
   const maxBar = Math.max(1, ...monthly.map(Math.abs));
   const projectionYears = [5, 10, 15];
-  const profitProjectionYears = [1, 2, 5];
+  const partialInvestmentYears = [1, 2, 5];
+  const partialInvestment = totalValue * 0.2;
   const annualReturn = 0.08;
   const sp500Projections = [
     {
@@ -441,26 +442,26 @@ function AnalysisPage({
         <div className="projection-card">
           <div className="projection-heading">
             <div>
-              <span className="kicker">ANNUAL PROFIT INVESTED</span>
-              <h2>本年度收益投入大盘</h2>
+              <span className="kicker">20% INVESTED</span>
+              <h2>全部资产的 20% 投入大盘</h2>
             </div>
             <span className="projection-rate">年化 8%</span>
           </div>
           <p>
-            以本年度累计收益 <strong>{money(totalProfit)}</strong> 为本金，按年复利估算
+            以全部资产 {money(totalValue)} 的 20%（<strong>{money(partialInvestment)}</strong>）为本金，按年复利估算
           </p>
           <div className="projection-values">
-            {profitProjectionYears.map((years) => (
+            {partialInvestmentYears.map((years) => (
               <div key={years}>
                 <span>{years} 年后</span>
-                <strong className={totalProfit >= 0 ? "up" : "down"}>
-                  {money(totalProfit * Math.pow(1 + annualReturn, years))}
+                <strong className={partialInvestment >= 0 ? "up" : "down"}>
+                  {money(partialInvestment * Math.pow(1 + annualReturn, years))}
                 </strong>
                 <small className="projection-withdrawal">
                   每月可用
                   <b>
                     {money(
-                      (totalProfit * Math.pow(1 + annualReturn, years) * 0.04) /
+                      (partialInvestment * Math.pow(1 + annualReturn, years) * 0.04) /
                         12,
                     )}
                   </b>
