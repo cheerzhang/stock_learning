@@ -264,8 +264,7 @@ function AnalysisPage({
   const maxGrowth = Math.max(1, ...monthlyGrowth.map(({ value }) => Math.abs(value)));
   const maxBar = Math.max(1, ...monthly.map(Math.abs));
   const projectionYears = [5, 10, 15];
-  const partialInvestmentYears = [1, 2, 5];
-  const partialInvestment = totalValue * 0.2;
+  const sp500HoldingYears = [1, 2, 5];
   const annualReturn = 0.08;
   const sp500Rows = rows.filter((row) =>
     row.code.toUpperCase() === "VUAA" ||
@@ -279,6 +278,24 @@ function AnalysisPage({
       profit: totals.profit + row.openingProfit + value - row.startValue - flows,
     };
   }, { value: 0, profit: 0 });
+  const sp500ProfitAt = (end: string) => sp500Rows.reduce((sum, row) => {
+    const prices = row.prices.filter((price) => price.date <= end);
+    const latest = prices.at(-1);
+    if (!latest) return sum;
+    return sum + row.openingProfit + latest.value - row.startValue -
+      prices.reduce((flows, price) => flows + (price.flow ?? 0), 0);
+  }, 0);
+  const sp500Monthly = Array.from({ length: monthsElapsed }, (_, index) => {
+    const month = `${year}-${String(index + 1).padStart(2, "0")}`;
+    const previousEnd = index === 0 ? `${year - 1}-12-31` :
+      `${year}-${String(index).padStart(2, "0")}-31`;
+    return {
+      month,
+      hasData: sp500Rows.some((row) => row.prices.some((price) => price.date.startsWith(month))),
+      value: sp500ProfitAt(`${month}-31`) - sp500ProfitAt(previousEnd),
+    };
+  }).filter(({ hasData }) => hasData);
+  const sp500MaxBar = Math.max(1, ...sp500Monthly.map(({ value }) => Math.abs(value)));
   const sp500Projections = [
     {
       label: "全部投入 S&P 500",
@@ -456,40 +473,6 @@ function AnalysisPage({
         <div className="projection-card">
           <div className="projection-heading">
             <div>
-              <span className="kicker">20% INVESTED</span>
-              <h2>全部资产的 20% 投入大盘</h2>
-            </div>
-            <span className="projection-rate">年化 8%</span>
-          </div>
-          <p>
-            以全部资产 {money(totalValue)} 的 20%（<strong>{money(partialInvestment)}</strong>）为本金，按年复利估算
-          </p>
-          <div className="projection-values">
-            {partialInvestmentYears.map((years) => (
-              <div key={years}>
-                <span>{years} 年后</span>
-                <strong className={partialInvestment >= 0 ? "up" : "down"}>
-                  {money(partialInvestment * Math.pow(1 + annualReturn, years))}
-                </strong>
-                <small className="projection-withdrawal">
-                  每月可用
-                  <b>
-                    {money(
-                      (partialInvestment * Math.pow(1 + annualReturn, years) * 0.04) /
-                        12,
-                    )}
-                  </b>
-                  <em>按每年提取 4%</em>
-                </small>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="projection-grid single-card">
-        <div className="projection-card">
-          <div className="projection-heading">
-            <div>
               <span className="kicker">S&P 500 HOLDINGS</span>
               <h2>S&P 500 实际持仓收益与复利</h2>
             </div>
@@ -511,7 +494,7 @@ function AnalysisPage({
             </div>
           </div>
           <div className="projection-values">
-            {partialInvestmentYears.map((years) => {
+            {sp500HoldingYears.map((years) => {
               const value = sp500Totals.value * Math.pow(1 + annualReturn, years);
               return (
                 <div key={years}>
@@ -527,6 +510,34 @@ function AnalysisPage({
             })}
           </div>
         </div>
+      </section>
+      <section className="monthly-panel">
+        <div className="section-head">
+          <div>
+            <span className="kicker">S&P 500 MONTHLY PROFIT</span>
+            <h2>S&P 500 实际每月收益</h2>
+            <p>仅显示有持仓记录的月份；新增投入不计为收益，当月显示截至最新记录的收益。</p>
+          </div>
+          <strong className={sp500Totals.profit >= 0 ? "up" : "down"}>
+            {money(sp500Totals.profit)}
+          </strong>
+        </div>
+        {sp500Monthly.length ? (
+          <div className="month-bars">
+            {sp500Monthly.map(({ month, value }) => (
+              <div key={month}>
+                <span className="bar-value">{money(value)}</span>
+                <div className="bar-space">
+                  <i
+                    className={value >= 0 ? "positive" : "negative"}
+                    style={{ height: `${Math.max((Math.abs(value) / sp500MaxBar) * 46, value ? 2 : 0)}%` }}
+                  />
+                </div>
+                <time>{Number(month.slice(5))}月</time>
+              </div>
+            ))}
+          </div>
+        ) : <p>暂无本年度持仓记录。</p>}
       </section>
       <section className="method">
         <strong>计算说明</strong>
