@@ -189,6 +189,8 @@ function LineChart({
 }
 
 type AnalysisRow = {
+  code: string;
+  name: string;
   openingProfit: number;
   startValue: number;
   prices: Price[];
@@ -265,6 +267,18 @@ function AnalysisPage({
   const partialInvestmentYears = [1, 2, 5];
   const partialInvestment = totalValue * 0.2;
   const annualReturn = 0.08;
+  const sp500Rows = rows.filter((row) =>
+    row.code.toUpperCase() === "VUAA" ||
+    /^(SP500|S&P500|标普500)$/.test(row.name.replace(/\s/g, "").toUpperCase()),
+  );
+  const sp500Totals = sp500Rows.reduce((totals, row) => {
+    const value = row.prices.at(-1)?.value ?? row.startValue;
+    const flows = row.prices.reduce((sum, price) => sum + (price.flow ?? 0), 0);
+    return {
+      value: totals.value + value,
+      profit: totals.profit + row.openingProfit + value - row.startValue - flows,
+    };
+  }, { value: 0, profit: 0 });
   const sp500Projections = [
     {
       label: "全部投入 S&P 500",
@@ -469,6 +483,48 @@ function AnalysisPage({
                 </small>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+      <section className="projection-grid single-card">
+        <div className="projection-card">
+          <div className="projection-heading">
+            <div>
+              <span className="kicker">S&P 500 HOLDINGS</span>
+              <h2>S&P 500 实际持仓收益与复利</h2>
+            </div>
+            <span className="projection-rate">年化 8%</span>
+          </div>
+          <p>
+            {sp500Rows.length ? `纳入资产：${sp500Rows.map((row) => `${row.name}（${row.code}）`).join("、")}` : "暂无 S&P 500 持仓"}。
+            以当前持仓价值 <strong>{money(sp500Totals.value)}</strong> 为本金，按年复利估算。
+          </p>
+          <div className="projection-values">
+            <div>
+              <span>本年度累计赚取</span>
+              <strong className={sp500Totals.profit >= 0 ? "up" : "down"}>{money(sp500Totals.profit)}</strong>
+            </div>
+            <div>
+              <span>每月平均赚取</span>
+              <strong className={sp500Totals.profit >= 0 ? "up" : "down"}>{money(sp500Totals.profit / monthsElapsed)}</strong>
+              <small>本年度累计收益 ÷ {monthsElapsed} 个月</small>
+            </div>
+          </div>
+          <div className="projection-values">
+            {partialInvestmentYears.map((years) => {
+              const value = sp500Totals.value * Math.pow(1 + annualReturn, years);
+              return (
+                <div key={years}>
+                  <span>{years} 年后</span>
+                  <strong>{money(value)}</strong>
+                  <small className="projection-withdrawal">
+                    每月可用
+                    <b>{money(value * 0.04 / 12)}</b>
+                    <em>按每年提取 4%</em>
+                  </small>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
