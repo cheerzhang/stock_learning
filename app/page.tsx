@@ -1728,7 +1728,7 @@ export default function Home() {
                     )}
                     <div className="price-history">
                       <div className="history-head">
-                        <h3>每日持仓总价值</h3>
+                        <h3>每日持仓总价值（最近 5 天）</h3>
                         {IS_LOCAL && (
                           <button
                             onClick={() => {
@@ -1743,7 +1743,7 @@ export default function Home() {
                         )}
                       </div>
                       <div className="price-grid">
-                        {[...row.prices].reverse().map((p) => (
+                        {row.prices.slice(-5).reverse().map((p) => (
                           <div key={p.id}>
                             <time>{p.date}</time>
                             <strong>{money(p.value)}</strong>
