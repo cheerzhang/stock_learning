@@ -263,7 +263,6 @@ function AnalysisPage({
   );
   const maxGrowth = Math.max(1, ...monthlyGrowth.map(({ value }) => Math.abs(value)));
   const maxBar = Math.max(1, ...monthly.map(Math.abs));
-  const projectionYears = [5, 10, 15];
   const sp500HoldingYears = [1, 2, 5];
   const annualReturn = 0.08;
   const sp500Rows = rows.filter((row) =>
@@ -299,6 +298,7 @@ function AnalysisPage({
   const sp500Projections = [
     {
       label: "全部投入 S&P 500",
+      years: [1, 2, 3, 5, 10, 15],
       kicker: "100% INVESTED",
       invested: totalValue,
       note: "全部资产参与复利",
@@ -308,6 +308,7 @@ function AnalysisPage({
     },
     {
       label: "50% 投入 S&P 500",
+      years: [1, 2, 3],
       kicker: "50% INVESTED",
       invested: totalValue * 0.5,
       note: "仅计算这 50% 的资产",
@@ -399,7 +400,7 @@ function AnalysisPage({
               {projection.note}
             </p>
             <div className="projection-values">
-              {projectionYears.map((years) => (
+              {projection.years.map((years) => (
                 <div key={years}>
                   <span>{years} 年后</span>
                   <strong>{money(projection.valueAfter(years))}</strong>
