@@ -45,3 +45,5 @@ footer{margin-left:12px;margin-right:12px}
 .projection-withdrawal{display:block;margin-top:14px;padding-top:12px;border-top:1px solid #ffffff0c;color:var(--muted);font-size:8px}.projection-withdrawal b{display:block;margin:5px 0;color:var(--green);font:500 clamp(14px,1.2vw,18px) Georgia,serif;white-space:nowrap}.projection-withdrawal em{color:#60756b;font-size:8px;font-style:normal}
 @media(max-width:900px){.projection-grid{margin:0 17px 18px;grid-template-columns:1fr}.projection-values strong{font-size:20px}}
 @media(max-width:600px){.projection-grid{margin:0 12px 14px;gap:12px}.projection-card{padding:20px 16px}.projection-heading h2{font-size:20px}.projection-card>p{line-height:1.5;margin:11px 0 16px}.projection-values>div{padding:16px 8px 0}.projection-values strong{font-size:14px}}
+
+.daily-profit-values{grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:24px}.daily-profit-values p{color:var(--muted);font-size:10px;line-height:1.6;margin:8px 0 0}

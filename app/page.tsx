@@ -205,6 +205,19 @@ function AnalysisPage({
   totalProfit: number;
 }) {
   const year = 2026;
+  // Official Dutch public holidays, including Good Friday and Liberation Day.
+  // Source: https://www.government.nl/themes/work/working-hours/question-and-answer/work/public-holidays-in-the-netherlands
+  const dutchHolidays = new Set([
+    "2026-01-01", "2026-04-03", "2026-04-05", "2026-04-06",
+    "2026-04-27", "2026-05-05", "2026-05-14", "2026-05-24",
+    "2026-05-25", "2026-12-25", "2026-12-26",
+  ]);
+  const daysInYear = (Date.UTC(year + 1, 0, 1) - Date.UTC(year, 0, 1)) / 86400000;
+  const workingDaysInYear = Array.from({ length: daysInYear }, (_, index) => {
+    const date = new Date(Date.UTC(year, 0, index + 1));
+    return date.getUTCDay() !== 0 && date.getUTCDay() !== 6 &&
+      !dutchHolidays.has(date.toISOString().slice(0, 10));
+  }).filter(Boolean).length;
   const now = new Date();
   const monthsElapsed = now.getFullYear() === year ? now.getMonth() + 1 : 12;
   useEffect(() => {
@@ -522,6 +535,18 @@ function AnalysisPage({
           <strong className={sp500Totals.profit >= 0 ? "up" : "down"}>
             {money(sp500Totals.profit)}
           </strong>
+        </div>
+        <div className="projection-values daily-profit-values">
+          <div>
+            <span>平均每日收益 · 全年自然日</span>
+            <strong>{money(sp500Totals.profit / daysInYear)}</strong>
+            <p>本年度累计收益 ÷ {daysInYear} 天</p>
+          </div>
+          <div>
+            <span>平均每日收益 · 全年工作日</span>
+            <strong>{money(sp500Totals.profit / workingDaysInYear)}</strong>
+            <p>本年度累计收益 ÷ {workingDaysInYear} 天（排除周末及荷兰官方公共假日）</p>
+          </div>
         </div>
         {sp500Monthly.length ? (
           <div className="month-bars">
