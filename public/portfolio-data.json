@@ -3209,6 +3209,13 @@
       "date": "2026-10-15",
       "value": 63127.5,
       "flow": 0
+    },
+    {
+      "id": "c93cae24-6c75-4bbd-aa2d-d81cc5ba896f",
+      "assetId": "3ce4f1ba-e580-48cf-af1c-27ecc57a2d5e",
+      "date": "2026-10-15",
+      "value": 340.74,
+      "flow": 0
     }
   ],
   "entries": [
