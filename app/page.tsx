@@ -32,6 +32,7 @@ type Store = { assets: Asset[]; prices: Price[]; entries?: CashEntry[] };
 const COLORS = ["#c75b42", "#2d6a59", "#c7972e", "#536ea8", "#915f84"];
 const emptyStore: Store = { assets: [], prices: [], entries: [] };
 const IS_LOCAL = import.meta.env.DEV;
+let portfolioSaveQueue: Promise<void> = Promise.resolve();
 const today = () => new Date().toISOString().slice(0, 10);
 const money = (n: number) =>
   new Intl.NumberFormat("nl-NL", {
@@ -1078,6 +1079,8 @@ export default function Home() {
   const savedSnapshot = useRef(JSON.stringify(emptyStore));
 
   useEffect(() => {
+    // Preserve unsaved in-memory edits during development hot updates.
+    if (ready) return;
     fetch(IS_LOCAL ? "/api/portfolio" : `./portfolio-data.json?v=${Date.now()}`, {
       cache: "no-store",
     })
@@ -1096,14 +1099,41 @@ export default function Home() {
   }, []);
   useEffect(() => {
     if (!ready || !IS_LOCAL) return;
+    if (!Array.isArray(store.entries)) {
+      // Repair state left by the old deletion bug without losing cash records.
+      try { localStorage.setItem("cangjian-unsaved-portfolio", JSON.stringify(store)); } catch {}
+      fetch("/api/portfolio", { cache: "no-store" })
+        .then(async (response) => {
+          if (!response.ok) throw new Error("读取失败");
+          const data: Store = await response.json();
+          setStore((current) => ({ ...current, entries: current.entries ?? data.entries ?? [] }));
+        })
+        .catch(() => {
+          const status = document.getElementById("portfolio-save-status");
+          if (status) status.textContent = "保存失败 · 请勿刷新页面，请检查本地服务";
+        });
+      return;
+    }
     const snapshot = JSON.stringify(store);
-    if (snapshot === savedSnapshot.current) return;
-    savedSnapshot.current = snapshot;
-    fetch("/api/portfolio", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: snapshot,
-    }).catch(() => {});
+    // Keep a recovery copy even when the local server cannot write the file.
+    try { localStorage.setItem("cangjian-unsaved-portfolio", snapshot); } catch {}
+    const status = document.getElementById("portfolio-save-status");
+    if (status) status.textContent = "欧元 · 正在保存…";
+    portfolioSaveQueue = portfolioSaveQueue.catch(() => {}).then(async () => {
+      const response = await fetch("/api/portfolio", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: snapshot,
+      });
+      if (!response.ok || !(await response.json()).ok) throw new Error("保存失败");
+      savedSnapshot.current = snapshot;
+      if (localStorage.getItem("cangjian-unsaved-portfolio") === snapshot) {
+        localStorage.removeItem("cangjian-unsaved-portfolio");
+        if (status) status.textContent = "欧元 · 已保存到本地文件";
+      }
+    }).catch(() => {
+      if (status) status.textContent = "保存失败 · 请勿刷新页面，请检查本地服务";
+    });
   }, [store, ready]);
   useEffect(() => {
     const update = () =>
@@ -1333,7 +1363,7 @@ export default function Home() {
           <a href="#/income">股息与费用</a>
         </nav>
         <div className="header-actions">
-          <span className="saved">
+          <span className="saved" id="portfolio-save-status" role="status">
             <i /> 欧元 · {IS_LOCAL ? "本地编辑" : "线上只读"}
           </span>
           {IS_LOCAL && (
@@ -1798,6 +1828,7 @@ export default function Home() {
                         onClick={() => {
                           if (confirm(`删除 ${row.name} 和全部价值记录？`))
                             setStore((s) => ({
+                              ...s,
                               assets: s.assets.filter((a) => a.id !== row.id),
                               prices: s.prices.filter(
                                 (p) => p.assetId !== row.id,
